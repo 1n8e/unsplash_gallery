@@ -12,8 +12,8 @@ class HomeScreen extends StatelessWidget {
       create: (_) => PhotoBloc(PhotoDataSource())..add(GetPhotoEvent()),
       child: Scaffold(
         appBar: AppBar(
+          leading: Icon(Icons.photo),
           title: Text('Unsplash gallery'),
-          centerTitle: true,
         ),
         body: BlocBuilder<PhotoBloc, PhotoState>(
           builder: (context, state) {
@@ -31,9 +31,20 @@ class HomeScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DetailedImageScreen(photo: state.photo[index],)),);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              DetailedImageScreen(
+                            photo: state.photo[index],
+                          ),
+                        ),
+                      );
                     },
-                      child: PhotoCard(photo: state.photo[index],));
+                    child: PhotoCard(
+                      photo: state.photo[index],
+                    ),
+                  );
                 },
                 separatorBuilder: (context, index) {
                   return SizedBox(height: 10);

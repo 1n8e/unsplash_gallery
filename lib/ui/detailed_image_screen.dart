@@ -8,8 +8,13 @@ class DetailedImageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Image.network(photo.fullImg),
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context);
+      },
+      child: Container(
+        child: Image.network(photo.fullImg),
+      ),
     );
   }
 }
