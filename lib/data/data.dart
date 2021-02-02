@@ -1,17 +1,15 @@
-import 'package:http/http.dart';
-import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'dart:async';
 import 'package:unsplash_gallery/model/photo_model.dart';
 
-
 class PhotoDataSource {
-  static const String url = "https://api.unsplash.com/photos/?client_id=P4hMKebAVRqkO6CDyyFDvVeYlpiLbs3CObSkiyM4jlA";
+  final Dio dio;
+
+  PhotoDataSource(this.dio);
 
   Future<List<Photo>> getData() async {
-    Response response = await get(url);
+    Response response = await dio.get('');
 
-    return (jsonDecode(response.body) as List)
-        .map((e) => Photo.fromJson(e))
-        .toList();
+    return (response.data as List).map((e) => Photo.fromJson(e)).toList();
   }
 }

@@ -9,8 +9,8 @@ part 'photo_event.dart';
 part 'photo_state.dart';
 
 class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
-  final PhotoDataSource photoDataSource;
   PhotoBloc(this.photoDataSource) : super(PhotoInitial());
+  final PhotoDataSource photoDataSource;
 
   @override
   Stream<PhotoState> mapEventToState(

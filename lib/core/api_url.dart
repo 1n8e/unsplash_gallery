@@ -1,0 +1,1 @@
+const API_URL = "https://api.unsplash.com/photos/?client_id=P4hMKebAVRqkO6CDyyFDvVeYlpiLbs3CObSkiyM4jlA";
